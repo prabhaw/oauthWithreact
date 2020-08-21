@@ -1,12 +1,24 @@
-import { useEffect } from "react";
 import Head from "next/head";
+import { usestate } from "react";
 import styles from "../styles/Home.module.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
-import { useRouter } from "next/router";
+import axios from "./../util/util";
+const DATA = process.env.PORT;
 export default function Home() {
-  const router = useRouter();
-  const { token } = router.query;
+  const facebooklogin = () => {
+    // cosnt[(dta, setData)] = useState({});
+    // window.location = "http://localhost:3000/api/auth/facebook";
+    // axios.GET();
+    // axios
+    //   .GET("/api/user", false)
+    //   .then((data) => {
+    //     console.log(data.data);
+    //     setData(data.data);
+    //   })
+    //   .catch((err) => {});
+    // data:{}})
+  };
 
   return (
     <>
@@ -15,10 +27,13 @@ export default function Home() {
           <title>Create Next App</title>
           <link rel='icon' href='/favicon.ico' />
         </Head>
-        <div>
-          <h1>This is Home Page</h1>
-          <h6>{token}</h6>
-        </div>
+        <a className='fb' href='/auth/facebook' type='submit'>
+          <FaFacebookF style={{ fontSize: "20px", color: "#ffff" }} /> Connect
+          with Facebook
+        </a>
+        <button className='google' type='submit'>
+          <FcGoogle style={{ fontSize: "20px" }} /> &nbsp; Connect with Google
+        </button>
       </div>
       <style jsx>{`
         .fb {
